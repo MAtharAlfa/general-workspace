@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shu — Informatics Engineering</title>
+<style>
+
+  /* ============================================
+     1. RESET & BASE SETUP
+     ============================================ */
+  * {
+    box-sizing: border-box;   /* padding/border counted INSIDE the width */
+    margin: 0;
+    padding: 0;
+  }
+
+  :root {
+    /* Color tokens — change these 5 values and the whole page re-themes */
+    --bg:        #14120f;   /* near-black, warm charcoal (not pure #000) */
+    --bg-panel:  #1c1a16;   /* slightly lighter panel background */
+    --ink:       #ece7db;   /* warm off-white text */
+    --ink-dim:   #a39c8c;   /* muted secondary text */
+    --accent:    #d98e3f;   /* amber — a nod to old CRT phosphor displays */
+    --line:      #33302a;   /* hairline border color */
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    font-size: 17px;
+  }
+
+  h1, h2, h3, .mono {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    /* monospace headings tie the design to "code" without overusing it everywhere */
+  }
+
+  a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  section {
+    max-width: 720px;         /* keeps line length readable */
+    margin: 0 auto;
+    padding: 64px 24px;
+  }
+
+  /* Hairline divider between sections instead of heavy card shadows */
+  section + section {
+    border-top: 1px solid var(--line);
+  }
+
+
+  /* ============================================
+     2. NAVIGATION
+     ============================================ */
+  nav {
+    position: sticky;
+    top: 0;
+    background: rgba(20, 18, 15, 0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+    z-index: 10;
+  }
+
+  nav .nav-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 18px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  nav .brand {
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 28px;
+  }
+
+  nav a {
+    color: var(--ink-dim);
+    font-size: 15px;
+    position: relative;
+  }
+
+  /* Underline that grows from the left on hover, instead of an instant color swap */
+  nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 1px;
+    background: var(--accent);
+    transition: width 0.25s ease;
+  }
+
+  nav a:hover {
+    color: var(--ink);
+  }
+
+  nav a:hover::after {
+    width: 100%;
+  }
+
+
+  /* ============================================
+     3. HERO
+     ============================================ */
+  .hero {
+    padding-top: 96px;
+    padding-bottom: 96px;
+  }
+
+  .hero .eyebrow {
+    color: var(--accent);
+    font-size: 14px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    line-height: 1.15;
+    margin: 16px 0 20px;
+  }
+
+  /* Blinking cursor after the name — one deliberate animated moment, not scattered everywhere */
+  .cursor {
+    display: inline-block;
+    width: 0.5em;
+    background: var(--accent);
+    margin-left: 4px;
+    animation: blink 1s steps(1) infinite;
+  }
+
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+
+  .hero p {
+    color: var(--ink-dim);
+    max-width: 55ch;
+  }
+
+  .hero .links {
+    margin-top: 32px;
+    display: flex;
+    gap: 20px;
+  }
+
+  .hero .links a {
+    border: 1px solid var(--line);
+    padding: 10px 18px;
+    font-size: 14px;
+    border-radius: 2px; /* sharp, not the generic rounded-pill look */
+  }
+
+  .hero .links a.primary {
+    background: var(--accent);
+    color: var(--bg);
+    border-color: var(--accent);
+  }
+
+  .hero .links a:hover {
+    border-color: var(--accent);
+  }
+
+
+  /* ============================================
+     4. ABOUT
+     ============================================ */
+  .about h2 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
+
+  .about p {
+    color: var(--ink-dim);
+    margin-bottom: 14px;
+  }
+
+  .about p strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+
+  /* ============================================
+     5. SKILLS — a simple grid, no cards/shadows
+     ============================================ */
+  .skills h2 {
+    font-size: 1.4rem;
+    margin-bottom: 28px;
+  }
+
+  .skill-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 24px;
+  }
+
+  .skill-group h3 {
+    font-size: 0.85rem;
+    color: var(--accent);
+    margin-bottom: 8px;
+    letter-spacing: 0.03em;
+  }
+
+  .skill-group ul {
+    list-style: none;
+    color: var(--ink-dim);
+    font-size: 15px;
+  }
+
+  .skill-group li {
+    padding: 3px 0;
+  }
+
+
+  /* ============================================
+     6. PROJECTS
+     ============================================ */
+  .projects h2 {
+    font-size: 1.4rem;
+    margin-bottom: 28px;
+  }
+
+  .project {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .project:last-child {
+    border-bottom: none;
+  }
+
+  .project-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .project-head h3 {
+    font-size: 1.05rem;
+  }
+
+  .project-head span {
+    font-size: 13px;
+    color: var(--ink-dim);
+  }
+
+  .project p {
+    color: var(--ink-dim);
+    margin-top: 8px;
+    font-size: 15px;
+  }
+
+  .project .tags {
+    margin-top: 10px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .project .tags span {
+    font-size: 12px;
+    border: 1px solid var(--line);
+    padding: 3px 9px;
+    color: var(--ink-dim);
+  }
+
+
+  /* ============================================
+     7. CONTACT / FOOTER
+     ============================================ */
+  .contact h2 {
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+  }
+
+  .contact p {
+    color: var(--ink-dim);
+    margin-bottom: 24px;
+  }
+
+  footer {
+    text-align: center;
+    padding: 32px 24px;
+    color: var(--ink-dim);
+    font-size: 13px;
+  }
+
+
+  /* ============================================
+     8. RESPONSIVE — mobile-first override
+     ============================================ */
+  @media (max-width: 600px) {
+    nav ul {
+      gap: 16px;
+    }
+    .hero {
+      padding-top: 64px;
+    }
+    .hero .links {
+      flex-direction: column;
+    }
+  }
+
+  /* Respect users who've asked their OS to reduce motion */
+  @media (prefers-reduced-motion: reduce) {
+    .cursor {
+      animation: none;
+    }
+    nav a::after {
+      transition: none;
+    }
+  }
+
+</style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <div class="brand mono">shu.dev</div>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <p class="eyebrow mono">Informatics Engineering — Universitas Padjadjaran</p>
+    <h1>Hi, I'm Shu<span class="cursor">&nbsp;</span></h1>
+    <p>I build things from the ground up — from SAP-style CPU architectures and
+      x86 assembly to full applications. I like understanding how the machine
+      actually works underneath the abstraction.</p>
+    <div class="links">
+      <a href="#projects" class="primary">See my work</a>
+      <a href="#contact">Get in touch</a>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <h2>// about</h2>
+    <p>I'm a student focused on <strong>computer architecture and low-level
+      programming</strong>, alongside coursework in informatics engineering.
+      I'm drawn to projects where I can trace a system down to what's actually
+      happening in memory and registers, not just call a library.</p>
+    <p>Outside of coursework, I'm active in <strong>HIMATIF</strong>, the
+      informatics student association, helping organize academic and
+      community events.</p>
+  </section>
+
+  <section class="skills" id="skills">
+    <h2>// skills</h2>
+    <div class="skill-grid">
+      <div class="skill-group">
+        <h3>LANGUAGES</h3>
+        <ul>
+          <li>C / C++</li>
+          <li>x86 Assembly</li>
+          <li>Python</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3>SYSTEMS</h3>
+        <ul>
+          <li>Computer Architecture</li>
+          <li>NASM</li>
+          <li>Memory & I/O</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3>TOOLS</h3>
+        <ul>
+          <li>Git</li>
+          <li>Linux</li>
+          <li>Make / CMake</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects" id="projects">
+    <h2>// projects</h2>
+
+    <div class="project">
+      <div class="project-head">
+        <h3>Visual Novel Engine</h3>
+        <span>C++</span>
+      </div>
+      <p>A visual novel engine built from scratch, covering the rendering
+        pipeline, scripting logic, and build setup.</p>
+      <div class="tags"><span>C++</span><span>Game Engine</span></div>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3>PC Speaker Melody Player</h3>
+        <span>x86 ASM</span>
+      </div>
+      <p>An MS-DOS assembly program exploring PIT programming and segmented
+        memory to play melodies through the PC speaker.</p>
+      <div class="tags"><span>NASM</span><span>Low-level</span></div>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3>SAP-2 Assembly Programs</h3>
+        <span>Architecture</span>
+      </div>
+      <p>Programs and T-state execution analysis written for an extended
+        SAP-2 style CPU architecture.</p>
+      <div class="tags"><span>Computer Architecture</span></div>
+    </div>
+
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>// contact</h2>
+    <p>Open to conversations about systems programming, computer architecture,
+      or collaboration on student projects.</p>
+    <div class="links">
+      <a href="mailto:you@example.com" class="primary">Email me</a>
+      <a href="https://github.com/yourusername">GitHub</a>
+    </div>
+  </section>
+
+  <footer>
+    Built with plain HTML & CSS — edit freely.
+  </footer>
+
+</body>
+</html>
