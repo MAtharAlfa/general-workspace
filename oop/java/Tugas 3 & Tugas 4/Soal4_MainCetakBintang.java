@@ -21,15 +21,15 @@ public class Soal4_MainCetakBintang {
         bintang2.cetakPola();
         System.out.println();
 
-        System.out.println("Objek 3: ");
-        CetakBintang bintang3 = new CetakBintang();
-        bintang3.jalankanProgramPencetakPola();;
-        System.out.println();
-
-        System.out.println("Objek 4:");
+        System.out.println("Objek 3:");
         CetakBintang bintang4 = new CetakBintang();
         bintang4.setLebarKolom(CetakBintang.inputInteger("Masukan integer (minimal 1): ", 1));
         bintang4.cetakPola();
+        System.out.println();
+
+        System.out.println("Objek 4: ");
+        CetakBintang bintang3 = new CetakBintang();
+        bintang3.jalankanProgramPencetakPola();;
         System.out.println();
     }
 }
@@ -211,6 +211,15 @@ class CetakBintang {
 
             System.out.println("input error(): nilai tidak valid");
         }
+
+        return input;
+    }
+
+    static Integer inputInteger(String pesan){
+        Integer input;
+
+        System.out.println(pesan);
+        input = Integer.parseInt(sc.nextLine());
 
         return input;
     }

@@ -11,28 +11,26 @@ import java.util.Scanner;
 public class Soal1_MainAnakAyam {
     public static void main(String[] args){
         System.out.println("Objek 1:");
-        AnakAyam ayam1 = new AnakAyam();
-        ayam1.runAnakAyam();
+        AnakAyam ayam1 = new AnakAyam(3);
+        ayam1.cetakAnakAyam();
         System.out.println();
 
         System.out.println("Objek 2:");
-        AnakAyam ayam2 = new AnakAyam(3);
+        AnakAyam ayam2 = new AnakAyam();
+        ayam2.setAnakAyam(3);
         ayam2.cetakAnakAyam();
         System.out.println();
 
         System.out.println("Objek 3:");
         AnakAyam ayam3 = new AnakAyam();
-        ayam3.setAnakAyam(3);
+        ayam3.setAnakAyam(AnakAyam.inputInteger("Masukan integer nilai: "));
         ayam3.cetakAnakAyam();
         System.out.println();
 
         System.out.println("Objek 4:");
         AnakAyam ayam4 = new AnakAyam();
-        ayam4.setAnakAyam(AnakAyam.inputInteger("Masukan integer nilai: "));
-        ayam4.cetakAnakAyam();
+        ayam4.runAnakAyam();
     }
-    
-    
 }
 
 class AnakAyam {

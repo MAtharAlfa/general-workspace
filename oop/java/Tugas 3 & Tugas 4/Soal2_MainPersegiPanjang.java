@@ -13,27 +13,27 @@ import java.text.DecimalFormat;
 public class Soal2_MainPersegiPanjang {
     public static void main(String[] args) {
         System.out.println("Objek 1:");
-        PersegiPanjang persegiPanjang1 = new PersegiPanjang();
-        persegiPanjang1.inputPersegiPanjang();
-        persegiPanjang1.cetakInfoPersegiPanjang();
-        System.out.println();
-
-        System.out.println("Objek 2:");
         PersegiPanjang persegiPanjang2 = new PersegiPanjang(6, 8);
         persegiPanjang2.cetakInfoPersegiPanjang();
         System.out.println();
 
-        System.out.println("Objek 3:");
+        System.out.println("Objek 2:");
         PersegiPanjang persegiPanjang3 = new PersegiPanjang();
         persegiPanjang3.setPanjang(9);
         persegiPanjang3.setLebar(12);
         persegiPanjang3.cetakInfoPersegiPanjang();
 
-        System.out.println("Objek 4:");
+        System.out.println("Objek 3:");
         PersegiPanjang persegiPanjang4 = new PersegiPanjang();
         persegiPanjang4.setPanjang(PersegiPanjang.inputInteger("Masukan panjang: "));
         persegiPanjang4.setLebar(PersegiPanjang.inputInteger("Masukan lebar: "));
         persegiPanjang4.cetakInfoPersegiPanjang();
+
+        System.out.println("Objek 4:");
+        PersegiPanjang persegiPanjang1 = new PersegiPanjang();
+        persegiPanjang1.inputPersegiPanjang();
+        persegiPanjang1.cetakInfoPersegiPanjang();
+        System.out.println();
     }
 }
 

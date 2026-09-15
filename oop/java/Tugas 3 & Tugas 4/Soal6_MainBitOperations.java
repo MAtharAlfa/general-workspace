@@ -8,54 +8,76 @@ Deskripsi       : Program memeriksa biner antara dua nilai dan operasi-operasiny
 
 public class Soal6_MainBitOperations {
     static public void main(String[] args){
-        BitOperations bo = new BitOperations(53, 19);
-        bo.cetakHasil();
+        System.out.println("Objek 1:");
+        BitOperations BO1 = new BitOperations(53,19);
+        BO1.cetakHasil();
+        System.out.println();
+
+        System.out.println("Objek 2:");
+        BitOperations BO2 = new BitOperations();
+        BO2.setA(53);
+        BO2.setA(19);
+        BO2.cetakHasil();
+        System.out.println();
+
+        System.out.println("Objek 3:");
+        BitOperations BO3 = new BitOperations();
+        BO3.setA(CetakBintang.inputInteger("Masukan angka (minimal 0)", 0));
+        BO3.setB(CetakBintang.inputInteger("Masukan angka (minimal 0)", 0));
+        BO3.cetakHasil();
+        System.out.println();
+
+        System.out.println("Objek 4:");
+        BitOperations BO4 = new BitOperations();
+        BO4.inputBitOperations();
+        BO4.cetakHasil();
+        System.out.println();
     }
 }
 
 class BitOperations {
     public void cetakHasil() {
-        System.out.println("Nilai biner 53:");
+        System.out.println("Nilai biner " + A);
         System.out.print("Biner: "); printIntegerToBinary(A);
         System.out.print("Hex: "); printIntegerToHex(A);
         System.out.print("Octal: "); printIntegerToOctal(A);
         System.out.println("\n");
 
-        System.out.println("Nilai biner 19:");
+        System.out.println("Nilai biner " + B);
         System.out.print("Biner: "); printIntegerToBinary(B);
         System.out.print("Hex: "); printIntegerToHex(B);
         System.out.print("Octal: "); printIntegerToOctal(B);
         System.out.println("\n");
 
-        System.out.println("Hasil Operasi Biner 53 AND 19:");
+        System.out.println("Hasil Operasi Biner " + A + " AND " + B);
         System.out.println("Desimal: " + (A & B));
         System.out.print("Biner: "); printIntegerToBinary(A & B);
         System.out.print("Hex: "); printIntegerToHex(A & B);
         System.out.print("Octal: "); printIntegerToOctal(A & B);
         System.out.println("\n");
 
-        System.out.println("Hasil Operasi Biner 53 OR 19:");
+        System.out.println("Hasil Operasi Biner " + A + " OR " + B);
         System.out.println("Desimal: " + (A | B));
         System.out.print("Biner: "); printIntegerToBinary(A | B);
         System.out.print("Hex: "); printIntegerToHex(A | B);
         System.out.print("Octal: "); printIntegerToOctal(A | B);
         System.out.println("\n");
 
-        System.out.println("Hasil Operasi Biner 53 XOR 19:");
+        System.out.println("Hasil Operasi Biner " + A + " XOR " + B);
         System.out.println("Desimal: " + (A ^ B));
         System.out.print("Biner: "); printIntegerToBinary(A ^ B);
         System.out.print("Hex: "); printIntegerToHex(A ^ B);
         System.out.print("Octal: "); printIntegerToOctal(A ^ B);
         System.out.println("\n");
 
-        System.out.println("Hasil Operasi Biner left shift 53 sebanyak 2:");
+        System.out.println("Hasil Operasi Biner left shift" + A + "sebanyak 2:");
         System.out.println("Desimal: " + (A << 2));
         System.out.print("Biner: "); printIntegerToBinary(A << 2);
         System.out.print("Hex: "); printIntegerToHex(A << 2);
         System.out.print("Octal: "); printIntegerToOctal(A << 2);
         System.out.println("\n");
 
-        System.out.println("Hasil Operasi Biner right shift 19 sebanyak 1:");
+        System.out.println("Hasil Operasi Biner right shift" + B + "sebanyak 1:");
         System.out.println("Desimal: " + (B >> 1));
         System.out.print("Biner: "); printIntegerToBinary(B >> 1);
         System.out.print("Hex: "); printIntegerToHex(B >> 1);
@@ -64,12 +86,12 @@ class BitOperations {
 
     private int A, B;
 
-    BitOperations(int A, int B) {
+    public BitOperations(int A, int B) {
         this.A = A; 
         this.B = B;
     }
 
-    BitOperations() {
+    public BitOperations() {
         this(0,0);
     }
 
@@ -87,6 +109,11 @@ class BitOperations {
 
     public int getB() {
         return B;
+    }
+
+    public void inputBitOperations() {
+        setA(CetakBintang.inputInteger("Masukan integer: "));
+        setB(CetakBintang.inputInteger("Masukan integer: "));
     }
 
     private void printIntegerToBinary(Integer nilai){
@@ -114,7 +141,7 @@ class BitOperations {
 
     private void printIntegerToHex(Integer nilai){
         StringBuilder hasil = new StringBuilder();
-         {
+        {
             Integer temp = nilai % 16;
             if (temp < 10) {
                 hasil.append(temp.toString());   

@@ -6,8 +6,9 @@ Tanggal Buat    : 08/09/2026
 Deskripsi       : Program memasukan input nama dan golongan untuk mencari gaji pokok, tunjangan, potongan, dan gaji utama
 */
 
-// compile pakai: javac -cp "fliptables-1.1.0.jar" CLASS.java
-// run pakai: java -cp ".;fliptables-1.1.0.jar" CLASS
+// compile pakai: javac -cp "fliptables-1.x.x.jar" CLASS.java
+// run pakai: java -cp ".;fliptables-1.x.x.jar" CLASS
+// do pay attention to the version that you have
 
 // obj1 -> constructor, obj2 -> setter (konstanta), obj3 -> input/scanner di main masuk ke setter, obj4 -> input dalam class pakai scanner
 
@@ -18,24 +19,24 @@ import java.text.DecimalFormat;
 public class Soal3_MainPegawai {
     static public void main(String[] args) {
         System.out.println("Objek 1:");
-        Pegawai pegawai1 = new Pegawai();
-        pegawai1.hitungGaji();
-        System.out.println();
-
-        System.out.println("Objek 2:");
         Pegawai pegawai2 = new Pegawai("Ateng", 2);
         pegawai2.cetakTabel();
 
-        System.out.println("Objek 3:");
+        System.out.println("Objek 2:");
         Pegawai pegawai3 = new Pegawai();
         pegawai3.setPegawai("Cicit", 3);
         pegawai3.cetakTabel();
         System.out.println();
 
-        System.out.println("Objek 4:");
+        System.out.println("Objek 3:");
         Pegawai pegawai4 = new Pegawai();
         pegawai4.setPegawai(Pegawai.inputString("Masukan nama: "), Pegawai.inputInteger("Masukan integer: ", 1, 4));
         pegawai4.cetakTabel();
+        System.out.println();
+
+        System.out.println("Objek 4:");
+        Pegawai pegawai1 = new Pegawai();
+        pegawai1.hitungGaji();
         System.out.println();
     }
 }

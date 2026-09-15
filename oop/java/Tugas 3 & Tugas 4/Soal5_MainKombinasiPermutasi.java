@@ -12,29 +12,29 @@ import java.text.DecimalFormat;
 public class Soal5_MainKombinasiPermutasi {
     static public void main(String[] args){
         System.out.println("Objek 1:");
-        KombinasiPermutasi KP1 = new KombinasiPermutasi();
-        KP1.jalankanKombinasi();
-        KP1.jalankanPermutasi();
+        KombinasiPermutasi KP1 = new KombinasiPermutasi(5,3);
+        KP1.printKombinasi();
+        KP1.printPermutasi();
         System.out.println();
-        
+
         System.out.println("Objek 2:");
-        KombinasiPermutasi KP2 = new KombinasiPermutasi(5,3);
-        KP2.jalankanKombinasi();
-        KP2.jalankanPermutasi();
+        KombinasiPermutasi KP2 = new KombinasiPermutasi();
+        KP2.setN(4);
+        KP2.setR(2);
+        KP2.printKombinasi();
+        KP2.printPermutasi();
         System.out.println();
 
         System.out.println("Objek 3:");
         KombinasiPermutasi KP3 = new KombinasiPermutasi();
-        KP3.setN(4);
-        KP3.setR(2);
-        KP3.jalankanKombinasi();
-        KP3.jalankanPermutasi();
+        KP3.setN(CetakBintang.inputInteger("Masukan angka (minimal 0)", 0));
+        KP3.setR(CetakBintang.inputInteger("Masukan angka (minimal 0)", 0));
+        KP3.printKombinasi();
+        KP3.printPermutasi();
         System.out.println();
 
         System.out.println("Objek 4:");
         KombinasiPermutasi KP4 = new KombinasiPermutasi();
-        KP4.setN(4);
-        KP4.setN(2);
         KP4.jalankanKombinasi();
         KP4.jalankanPermutasi();
         System.out.println();
@@ -64,11 +64,11 @@ class KombinasiPermutasi{
 
     public KombinasiPermutasi(int n, int r) {
         this.n = n;
-        this.n = r;
+        this.r = r;
     }
 
     public KombinasiPermutasi() {
-        this(0,0);
+        this(-1,-1);
     }
 
     public void setN(int n) {
@@ -89,7 +89,16 @@ class KombinasiPermutasi{
     }
 
     public int getR() {
+
         return r;
+    }
+
+    public void printKombinasi() {
+        System.out.println("Hasil: " + df.format(kombinasi(n, r))); 
+    }
+
+    public void printPermutasi() {
+        System.out.println("Hasil: " + df.format(permutasi(n, r))); 
     }
 
     static Scanner sc = new Scanner(System.in);
@@ -122,5 +131,5 @@ class KombinasiPermutasi{
         return factorial(n)/(factorial(n-r));
     }
 
-    DecimalFormat df = new DecimalFormat("#.00");
+    private DecimalFormat df = new DecimalFormat("#.00");
 }
