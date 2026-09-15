@@ -16,7 +16,7 @@ public class Soal6_MainBitOperations {
         System.out.println("Objek 2:");
         BitOperations BO2 = new BitOperations();
         BO2.setA(53);
-        BO2.setA(19);
+        BO2.setB(19);
         BO2.cetakHasil();
         System.out.println();
 
