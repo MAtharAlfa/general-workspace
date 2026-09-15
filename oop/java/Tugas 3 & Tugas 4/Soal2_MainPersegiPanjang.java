@@ -1,5 +1,5 @@
 /* 
-Nama Program    : Anak Ayam
+Nama Program    : Persegi Luas
 Nama Pembuat    : Muhammad Athar Alfarisi
 NPM             : 140810250005
 Tanggal Buat    : 08/09/2026

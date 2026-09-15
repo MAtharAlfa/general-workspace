@@ -1,3 +1,11 @@
+/* 
+Nama Program    : Persegi Luas
+Nama Pembuat    : Muhammad Athar Alfarisi
+NPM             : 140810250005
+Tanggal Buat    : 08/09/2026
+Deskripsi       : Menghitung luas, keliling, dan diagonal persegi panjang 
+*/
+
 #include <iostream>
 #include <cmath>
 
