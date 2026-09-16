@@ -102,19 +102,15 @@ class Pegawai {
     float tentukanGT(int golongan) {
         int gajiPokok = tentukanGP(golongan);
 
-        return (float)gajiPokok
-             + tentukanTunjangan(golongan)
-             - tentukanPotongan(golongan);
+        return (float)gajiPokok + tentukanTunjangan(golongan) - tentukanPotongan(golongan);
     }
 
     float tentukanTunjangan(int golongan) {
-        return tentukanGP(golongan)
-             * tentukanKonstantaTunjangan(golongan);
+        return tentukanGP(golongan) * tentukanKonstantaTunjangan(golongan);
     }
 
     float tentukanPotongan(int golongan) {
-        return tentukanGP(golongan)
-             * tentukanKonstantaPotongan(golongan);
+        return tentukanGP(golongan) * tentukanKonstantaPotongan(golongan);
     }
 
 
@@ -299,37 +295,70 @@ class Pegawai {
 int main() {
 
     // Objek 1
-    std::cout << "Objek 1:\n";
-    Pegawai pegawai2("Ateng", 2);
-    pegawai2.cetakTabel();
-
+    Pegawai pegawai1("Ateng", 2);
 
     // Objek 2
-    std::cout << "Objek 2:\n";
-    Pegawai pegawai3;
-    pegawai3.setPegawai("Cicit", 3);
-    pegawai3.cetakTabel();
-    std::cout << "\n";
-
+    Pegawai pegawai2;
+    pegawai2.setPegawai("Cicit", 3);
 
     // Objek 3
-    std::cout << "Objek 3:\n";
-    Pegawai pegawai4;
-
-    pegawai4.setPegawai(
-        Pegawai::inputString("Masukan nama: "),
-        Pegawai::inputInteger("Masukan integer: ", 1, 4)
-    );
-
-    pegawai4.cetakTabel();
-    std::cout << "\n";
-
+    Pegawai pegawai3;
 
     // Objek 4
-    std::cout << "Objek 4:\n";
-    Pegawai pegawai1;
-    pegawai1.hitungGaji();
-    std::cout << "\n";
+    Pegawai pegawai4;
+
+
+    int pilihan;
+
+    do {
+        std::cout << "\n========================================\n";
+        std::cout << "          MENU PROGRAM PEGAWAI\n";
+        std::cout << "========================================\n";
+        std::cout << "1. Jalankan Objek 1\n";
+        std::cout << "2. Jalankan Objek 2\n";
+        std::cout << "3. Jalankan Objek 3\n";
+        std::cout << "4. Jalankan Objek 4\n";
+        std::cout << "5. Keluar\n";
+        std::cout << "========================================\n";
+
+        pilihan = Pegawai::inputInteger("Pilih menu (1-5): ", 1, 5);
+
+        std::cout << "\n";
+
+        switch (pilihan) {
+
+            case 1:
+                std::cout << "========== OBJEK 1 ==========\n";
+                pegawai1.cetakTabel();
+                break;
+
+            case 2:
+                std::cout << "========== OBJEK 2 ==========\n";
+                pegawai2.cetakTabel();
+                break;
+
+            case 3:
+                std::cout << "========== OBJEK 3 ==========\n";
+
+                pegawai3.setPegawai(
+                    Pegawai::inputString("Masukan nama: "),
+                    Pegawai::inputInteger("Masukan golongan: ", 1, 4)
+                );
+
+                pegawai3.cetakTabel();
+                break;
+
+            case 4:
+                std::cout << "========== OBJEK 4 ==========\n";
+                pegawai4.hitungGaji();
+                break;
+
+            case 5:
+                std::cout << "Program selesai.\n";
+                break;
+        }
+
+    } while (pilihan != 5);
 
     return 0;
 }

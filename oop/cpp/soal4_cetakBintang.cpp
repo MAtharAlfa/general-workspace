@@ -254,39 +254,58 @@ class CetakBintang {
 
 
 int main() {
-
     // Objek 1
-    std::cout << "Objek 1: \n";
     CetakBintang bintang1(3);
-    bintang1.cetakPola();
-    std::cout << "\n";
-
 
     // Objek 2
-    std::cout << "Objek 2: \n";
     CetakBintang bintang2;
     bintang2.setLebarKolom(2);
-    bintang2.cetakPola();
-    std::cout << "\n";
-
 
     // Objek 3
-    std::cout << "Objek 3:\n";
-    CetakBintang bintang4;
-
-    bintang4.setLebarKolom(
-        CetakBintang::inputInteger("Masukan integer (minimal 1): ", 1)
-    );
-
-    bintang4.cetakPola();
-    std::cout << "\n";
-
+    CetakBintang bintang3;
 
     // Objek 4
-    std::cout << "Objek 4: \n";
-    CetakBintang bintang3;
-    bintang3.jalankanProgramPencetakPola();
-    std::cout << "\n";
+    CetakBintang bintang4;
 
+    int pilihan;
+
+    do {
+        std::cout << "\n========================================\n";
+        std::cout << "       MENU PROGRAM CETAK BINTANG\n";
+        std::cout << "========================================\n";
+        std::cout << "1. Jalankan Objek 1\n";
+        std::cout << "2. Jalankan Objek 2\n";
+        std::cout << "3. Jalankan Objek 3\n";
+        std::cout << "4. Jalankan Objek 4\n";
+        std::cout << "5. Keluar\n";
+        std::cout << "========================================\n";
+
+        pilihan = CetakBintang::inputInteger("Pilih menu (1-5): ", 1);
+
+        std::cout << "\n";
+
+        switch (pilihan) {
+            case 1:
+                std::cout << "========== OBJEK 1 ==========\n";
+                bintang1.cetakPola();
+                break;
+            case 2:
+                std::cout << "========== OBJEK 2 ==========\n";
+                bintang2.cetakPola();
+                break;
+            case 3:
+                std::cout << "========== OBJEK 3 ==========\n";
+                bintang3.setLebarKolom(CetakBintang::inputInteger("Masukan integer (minimal 1): ", 1));
+                bintang3.cetakPola();
+                break;
+            case 4:
+                std::cout << "========== OBJEK 4 ==========\n";
+                bintang4.jalankanProgramPencetakPola();
+                break;
+            case 5:
+                std::cout << "Program selesai.\n";
+                break;
+        }
+    } while (pilihan != 5);
     return 0;
 }
