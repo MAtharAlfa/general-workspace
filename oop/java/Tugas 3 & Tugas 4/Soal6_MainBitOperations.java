@@ -70,14 +70,14 @@ class BitOperations {
         System.out.print("Octal: "); printIntegerToOctal(A ^ B);
         System.out.println("\n");
 
-        System.out.println("Hasil Operasi Biner left shift" + A + "sebanyak 2:");
+        System.out.println("Hasil Operasi Biner left shift " + A + " sebanyak 2:");
         System.out.println("Desimal: " + (A << 2));
         System.out.print("Biner: "); printIntegerToBinary(A << 2);
         System.out.print("Hex: "); printIntegerToHex(A << 2);
         System.out.print("Octal: "); printIntegerToOctal(A << 2);
         System.out.println("\n");
 
-        System.out.println("Hasil Operasi Biner right shift" + B + "sebanyak 1:");
+        System.out.println("Hasil Operasi Biner right shift " + B + " sebanyak 1:");
         System.out.println("Desimal: " + (B >> 1));
         System.out.print("Biner: "); printIntegerToBinary(B >> 1);
         System.out.print("Hex: "); printIntegerToHex(B >> 1);

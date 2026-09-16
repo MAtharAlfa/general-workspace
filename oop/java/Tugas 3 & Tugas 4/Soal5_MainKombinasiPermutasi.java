@@ -89,15 +89,24 @@ class KombinasiPermutasi{
     }
 
     public int getR() {
-
         return r;
     }
 
     public void printKombinasi() {
+        if (kombinasi(n, r) == null) {
+            System.out.println("error: printKombinasi() hasil permutasi null");
+            return;
+        }
+
         System.out.println("Hasil: " + df.format(kombinasi(n, r))); 
     }
 
     public void printPermutasi() {
+        if (permutasi(n, r) == null) {
+            System.out.println("error: printPermutasi() hasil permutasi null");    
+            return;     
+        }
+
         System.out.println("Hasil: " + df.format(permutasi(n, r))); 
     }
 
@@ -124,10 +133,20 @@ class KombinasiPermutasi{
     }
 
     private Integer kombinasi(Integer n, Integer r) {
+        if (n < r) {
+            System.err.println("error: kombinasi() n lebih kecil daripada r");
+            return null;
+        }
+
         return factorial(n)/(factorial(n-r)*factorial(r));
     }
 
     private Integer permutasi(Integer n, Integer r) {
+        if (n < r) {
+            System.err.println("error: permutasi() n lebih kecil daripada r");
+            return null;
+        }
+
         return factorial(n)/(factorial(n-r));
     }
 
