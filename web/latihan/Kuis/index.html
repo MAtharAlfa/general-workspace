@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daftar Nilai Mahasiswa</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="global-container">
+      <header>
+        <h1>Daftar Nilai Mahasiswa</h1>
+        <h1>Semester Ganjil 2026/2027</h1>
+      </header>
+      <section class="identity-section">
+        <div class="identity-card">
+          <label for="name">Nama:</label><br />
+          <input
+            type="text"
+            name="name"
+            id="name"
+            value="eg. Jane Doe"
+            class="input-identity"
+          /><br />
+          <label for="npm">NPM:</label><br />
+          <input
+            type="text"
+            name="npm"
+            id="npm"
+            value="eg. 140810200001"
+            class="input-identity"
+          /><br />
+          <label for="">Program Studi:</label><br />
+          <input
+            type="text"
+            name="program-studi"
+            id="program-studi"
+            value="eg. Teknik Informatika"
+            class="input-identity"
+          /><br />
+        </div>
+      </section>
+      <section>
+        <table id="table-nilai">
+          <tr>
+            <th>NO</th>
+            <th>SANDI</th>
+            <th>MATA KULIAH</th>
+            <th>SKS</th>
+            <th>NILAI HURUF</th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>D10K.0400305</td>
+            <td>SISTEM DATABASE II</td>
+            <td id="sks-1">2</td>
+            <td>
+              <input
+                type="text"
+                name="huruf-mutu"
+                id="huruf-mutu"
+                value="-"
+                class="input-table"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>D10K.0400503</td>
+            <td>ENTREPRENEURSHIP</td>
+            <td id="sks-1">2</td>
+            <td>
+              <input
+                type="text"
+                name="huruf-mutu"
+                id="huruf-mutu"
+                value="-"
+                class="input-table"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>D10A.3202</td>
+            <td>PEMROGRAMAN WEB</td>
+            <td id="sks-3">3</td>
+            <td>
+              <input
+                type="text"
+                name="huruf-mutu"
+                id="huruf-mutu"
+                value="-"
+                class="input-table"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td id="sks-4">4</td>
+            <td>D10G.3203</td>
+            <td>PEMROGRAMAN BERORIENTAS OBJEK</td>
+            <td>3</td>
+            <td>
+              <input
+                type="text"
+                name="huruf-mutu"
+                id="huruf-mutu"
+                value="-"
+                class="input-table"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>D10G.3201</td>
+            <td>SISTEM OPERASI</td>
+            <td id="sks-5">3</td>
+            <td>
+              <input
+                type="text"
+                name="huruf-mutu"
+                id="huruf-mutu"
+                value="-"
+                class="input-table"
+              />
+            </td>
+          </tr>
+        </table>
+        <div class="default-container">
+          <button type="button" id="proses-nilai">PROSES NILAI</button>
+        </div>
+      </section>
+      <section>
+        <span class="default-span">Jumlah Matakuliah: 5</span><br />
+        <span class="default-span">Jumlah Pengambilan SKS: </span>
+        <span class="default-span" id="hasilSks"> - </span><br />
+        <span class="default-span">IP: </span>
+        <span class="default-span" id="hasilIp"> - </span><br />
+      </section>
+    </div>
+  </body>
+</html>

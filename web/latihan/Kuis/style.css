@@ -1,0 +1,103 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+	background-color: rgb(132, 129, 126);
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td,
+th {
+  border: 1px solid rgb(23, 23, 23);
+  padding: 8px;
+  text-align: center;
+}
+
+header {
+  padding: 20px;
+  margin: 20px;
+}
+
+section {
+  padding: 24px;
+}
+
+section + section {
+  border-bottom: 1px solid rgb(46, 45, 45);
+}
+
+button {
+  padding: 20px;
+  border-radius: 8px;
+}
+
+input[type="reset"] {
+  padding: 20px;
+  border-radius: 10px;
+}
+
+label {
+	font:800
+}
+
+.global-container {
+  min-width: 600px;
+  max-width: 80vw;
+  margin: 0 auto;
+}
+
+.global-container > * {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.default-container {
+  padding: 10px;
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  row-gap: 10px;
+}
+
+.identity-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.identity-card > * {
+	padding: 10px 0;
+	margin: 10px 0;
+}
+
+.input-identity {
+	padding: 10px;
+	border-radius: 20px;
+}
+
+.input-table {
+  width: 100%;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.default-span {
+	font-size: 20px;
+}
