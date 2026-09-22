@@ -1,3 +1,9 @@
+# Nama Program    : Persegi Luas
+# Nama Pembuat    : Muhammad Athar Alfarisi
+# NPM             : 140810250005
+# Tanggal Buat    : 22/09/2026
+# Deskripsi       : Menghitung luas, keliling, dan diagonal persegi panjang 
+
 import math
 
 def inputPersegi():
@@ -16,14 +22,14 @@ def getKeliling(panjang, lebar):
     return (2*(panjang + lebar))
 
 def getDiagonal(panjang, lebar):
-    return math.sqrt(pow(panjang, 2) + pow(lebar, 2))
+    return math.sqrt(panjang ** 2 + lebar ** 2)
 
 def cetak(panjang, lebar):
     print("Panjang persegi panjang = ", panjang)
-    print("Panjang persegi panjang = ", lebar)
-    print("Panjang persegi panjang = ", getLuas(panjang, lebar))
-    print("Panjang persegi panjang = ", getKeliling(panjang, lebar))
-    print("Panjang persegi panjang = ", getDiagonal(panjang, lebar))
+    print("Panjang lebar panjang = ", lebar)
+    print("Panjang luas panjang = ", getLuas(panjang, lebar))
+    print("Panjang keliling panjang = ", getKeliling(panjang, lebar))
+    print("Panjang diagonal panjang = ", getDiagonal(panjang, lebar))
 
 def main():
     pjg, lbr = inputPersegi()
