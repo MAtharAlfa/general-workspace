@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Barang</title>
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="global-container">
+      <section>
+        <div id="input">
+          <form>
+            <label for="name">NAMA BARANG:</label><br />
+            <input type="text" name="name" id="name" /><br />
+            <label for="name">JUMLAH:</label><br />
+            <input
+              type="number"
+              name="jumlah"
+              id="jumlah"
+              onwheel="this.blur()"
+            /><br />
+            <div class="button-container">
+              <button type="button" id="submit">SUBMIT</button>
+              <button type="reset" id="reset">RESET</button>
+            </div>
+          </form>
+        </div>
+      </section>
+      <section>
+        <table id="mainTable">
+          <thead>
+            <tr>
+              <th>NAMA BARANG</th>
+              <th>JUMLAH</th>
+              <th>STATUS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <button
+        type="button"
+        id="resetTable"
+        style="margin: 0 auto; display: block"
+      >
+        RESET TABLE
+      </button>
+    </div>
+  </body>
+</html>
