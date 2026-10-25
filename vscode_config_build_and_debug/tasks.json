@@ -2,16 +2,20 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "type": "cppbuild",
       "label": "Custom C++ Build Task",
-	  "type": "shell",
-	  "command": "C:/msys64/ucrt64/bin/g++.exe",
-	  "args": [
-		"-g",
-		"${file}",
-		"-o",
-		"${fileDirname}/${fileBasenameNoExtension}.exe"
-	  ],
-	  "group": "build"
+      "command": "C:/tools/msys64/ucrt64/bin/g++.exe",
+      "args": [
+        "-fdiagnostics-color=always",
+        "-g",
+        "${file}",
+        "${workspaceFolder}/common/cpp/helpers.cpp",
+        "-I${workspaceFolder}/common/cpp",
+        "-o",
+        "${fileDirname}/${fileBasenameNoExtension}.exe"
+      ],
+      "options": { "cwd": "${fileDirname}" },
+      "group": { "kind": "build", "isDefault": true }
     }
   ]
 }
